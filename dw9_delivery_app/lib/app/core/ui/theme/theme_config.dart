@@ -12,21 +12,21 @@ class ThemeConfig {
   );
 
   static final theme = ThemeData(
-      scaffoldBackgroundColor: Colors.black,
-      appBarTheme: const AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 3, 3, 3),
-          elevation: 0,
-          centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.white)),
-      primaryColor: ColorsApp.i.primary,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: ColorsApp.i.primary,
-        primary: ColorsApp.i.primary,
-        secondary: ColorsApp.i.secondary,
-      ),
-      elevatedButtonTheme:
-          ElevatedButtonThemeData(style: AppStyles.i.primaryButton),
-      inputDecorationTheme: InputDecorationTheme(
+    scaffoldBackgroundColor: Color(0XFF140E0E),
+    appBarTheme: const AppBarTheme(
+        backgroundColor: Color.fromARGB(255, 14, 13, 13),
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.white)),
+    primaryColor: ColorsApp.i.primary,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: ColorsApp.i.primary,
+      primary: ColorsApp.i.primary,
+      secondary: ColorsApp.i.secondary,
+    ),
+    elevatedButtonTheme:
+        ElevatedButtonThemeData(style: AppStyles.i.primaryButton),
+    inputDecorationTheme: InputDecorationTheme(
         fillColor: Colors.black,
         filled: true,
         isDense: true,
@@ -35,7 +35,6 @@ class ThemeConfig {
         enabledBorder: _defaultInputBorder,
         focusedBorder: _defaultInputBorder,
         labelStyle: TextStyles.i.textRegular.copyWith(color: Colors.white),
-        errorStyle: TextStyles.i.textRegular.copyWith(color: Colors.redAccent)
-      ),
-      );
+        errorStyle: TextStyles.i.textRegular.copyWith(color: Colors.redAccent)),
+  );
 }

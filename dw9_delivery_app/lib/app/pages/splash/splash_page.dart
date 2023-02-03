@@ -10,40 +10,47 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Splash'),
-      ),
-      body: Column(
-        children: [
-          Container(),
-            DeliveryButton(
-              width: 249,
-              height: 34.12,
-              label: Env.i['backend_base_url'] ?? '',
-              onPressed: (){},
+      body: ColoredBox(
+        color: Color(0XFF140E0E),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: context.screenWidth,
+                child: Image.asset(
+                  'assets/images/lanche.png',
+                  fit: BoxFit.cover,
+                  ),
+                  ),
             ),
-            Text(MediaQuery.of(context).size.width.toString()),
-            Text(context.screenWidth.toString()),
-            Row(
-              children: [
-                Container(
-                  color: Colors.red,
-                  width: context.percenWidth(.5),
-                  height: 200,
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: context.percenHeight(.30),
+                  ),
+                  Image.asset(
+                    'assets/images/logo.png'
+                  ),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  DeliveryButton(
+                    width: context.percenWidth(.60),
+                    height: 35,
+                    label: 'ACESSAR',
+                    onPressed: (){}
+                    )
+                ],
                 ),
-                Container(
-                  color: Colors.blue,
-                  width: context.percenWidth(.5),
-                  height: 200,
-                ),
-              ],
-            ),
-            TextFormField(
-              decoration: const InputDecoration(labelText: 'text'),
             )
-        ],
-      ),
-    );
+          ],
+        ),
+        ),    
+      );
   }
 }
+
+
 
