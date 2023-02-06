@@ -1,3 +1,4 @@
+import 'package:dw9_delivery_app/app/pages/products_detail/product_detail_controller.dart';
 import 'package:dw9_delivery_app/app/pages/products_detail/products_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,14 +6,17 @@ import 'package:provider/provider.dart';
 class ProductsDetailRouter {
   ProductsDetailRouter._();
 
-  static Widget get page =>
-      MultiProvider(
+  static Widget get page => MultiProvider(
         providers: [
           Provider(
-            create: (context) => Object(),
-            )
-        ], 
-        child: const ProductsDetailPage()
-        );
+            create: (context) => ProductDetailController(),
+          )
+        ],
+        builder: (context, child) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+
+          return ProductsDetailPage(product: args['product']);
+        },
+      );
 }
- 

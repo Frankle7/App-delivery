@@ -14,7 +14,7 @@ class DeliveryProductTile extends StatelessWidget {
     return InkWell(
       onTap: () async {
         await Navigator.of(context).pushNamed('/productDetail', arguments: {
-          'products': product,  
+          'product': product,  
         });
       },
       child: Padding(
