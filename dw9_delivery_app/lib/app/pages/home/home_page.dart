@@ -23,37 +23,40 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: DeliveryAppbar(),
-        body: BlocConsumer<HomeController, HomeState>(
-          listener: (context, state) {
-            state.status.matchAny(
-              any: () => hideLoader(),
-              loading: () => showLoader(),
-              error: () {
-                hideLoader();
-                showError(state.errorMessage ?? 'Erro nao informado');
-              },
-            );
-          },
-          buildWhen: (previous, current) => current.status.matchAny(
-            any: () => false,
-            initial: () => true,
-            loaded: () => true,
-          ),
-          builder: (context, state) {
-            return Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: state.products.length,
-                    itemBuilder: (context, index) {
-                      final products = state.products[index];
-                      return DeliveryProductTile(product: products);
-                    },
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: BlocConsumer<HomeController, HomeState>(
+            listener: (context, state) {
+              state.status.matchAny(
+                any: () => hideLoader(),
+                loading: () => showLoader(),
+                error: () {
+                  hideLoader();
+                  showError(state.errorMessage ?? 'Erro nao informado');
+                },
+              );
+            },
+            buildWhen: (previous, current) => current.status.matchAny(
+              any: () => false,
+              initial: () => true,
+              loaded: () => true,
+            ),
+            builder: (context, state) {
+              return Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: state.products.length,
+                      itemBuilder: (context, index) {
+                        final products = state.products[index];
+                        return DeliveryProductTile(product: products);
+                      },
+                    ),
                   ),
-                ),
-              ],
-            );
-          },
+                ],
+              );
+            },
+          ),
         ));
   }
 }

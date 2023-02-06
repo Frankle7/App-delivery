@@ -31,6 +31,8 @@ class TextStyles {
       TextStyle(fontWeight: FontWeight.w800, fontFamily: font);
 
   TextStyle get textButtonLabel => textBold.copyWith(fontSize: 14);
+
+  copyWith({required Color color}) {}
 }
 
 extension TesteStylesExtension on BuildContext {
