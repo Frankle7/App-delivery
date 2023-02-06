@@ -1,4 +1,3 @@
-import 'package:dw9_delivery_app/app/core/ui/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class TextStyles {
@@ -35,5 +34,5 @@ class TextStyles {
 }
 
 extension TesteStylesExtension on BuildContext {
-  AppStyles get appStyles => AppStyles.i;
+  TextStyles get textStyles => TextStyles.i;
 }
