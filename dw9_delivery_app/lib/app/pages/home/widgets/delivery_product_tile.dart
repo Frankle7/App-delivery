@@ -16,7 +16,7 @@ class DeliveryProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        final controller = context.read()<HomeController>();
+        final controller = context.read<HomeController>();
         final orderProduct =
             await Navigator.of(context).pushNamed('/productDetail', arguments: {
           'product': product,
