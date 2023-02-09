@@ -16,7 +16,9 @@ class ProductsDetailRouter {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;
 
-          return ProductsDetailPage(product: args['product']);
+          return ProductsDetailPage( 
+            product: args['product'], 
+            order: args['order'],);
         },
       );
 }

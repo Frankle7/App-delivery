@@ -9,20 +9,26 @@ import 'package:provider/provider.dart';
 
 class DeliveryProductTile extends StatelessWidget {
   final ProductModel product;
+  final OrderProductDto? orderProduct;
 
-  const DeliveryProductTile({super.key, required this.product});
+  const DeliveryProductTile({
+    super.key, 
+    required this.product, 
+    this.orderProduct,
+    });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
         final controller = context.read<HomeController>();
-        final orderProduct =
+        final orderProductResult =
             await Navigator.of(context).pushNamed('/productDetail', arguments: {
           'product': product,
+          'order': orderProduct,
         });
-        if (orderProduct != null) {
-          controller.addOrUpdateBag(orderProduct as OrderProductDto);
+        if (orderProductResult != null) {
+          controller.addOrUpdateBag(orderProductResult as OrderProductDto);
         }
       },
       child: Padding(

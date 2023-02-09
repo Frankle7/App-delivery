@@ -14,8 +14,9 @@ import '../../core/ui/widgets/delivery_increment_decrement_button.dart';
 
 class ProductsDetailPage extends StatefulWidget {
   final ProductModel product;
+  final OrderProductDto? order;
 
-  const ProductsDetailPage({super.key, required this.product});
+  const ProductsDetailPage({super.key, required this.product, this.order});
 
   @override
   State<ProductsDetailPage> createState() => _ProductsDetailPageState();
@@ -23,6 +24,13 @@ class ProductsDetailPage extends StatefulWidget {
 
 class _ProductsDetailPageState
     extends BaseState<ProductsDetailPage, ProductDetailController> {
+  @override
+  void initState() {
+    super.initState();
+    final amout = widget.order?.amout ?? 1;
+    controller.initial(amout, widget.order != null);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
