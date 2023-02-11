@@ -31,6 +31,43 @@ class _ProductsDetailPageState
     controller.initial(amout, widget.order != null);
   }
 
+  void _showConfirmDelete(int amout) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Que isso, vai destir de mim?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Cancelar',
+                style: context.textStyles.textBold.copyWith(color: Colors.red),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.of(context).pop(
+                  OrderProductDto(
+                    product: widget.product, 
+                    amout: amout),
+                );
+              },
+              child: Text(
+                'Confirmar',
+                style: context.textStyles.textBold,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,33 +139,46 @@ class _ProductsDetailPageState
                   child: BlocBuilder<ProductDetailController, int>(
                     builder: (context, amout) {
                       return ElevatedButton(
+                          style: amout == 0
+                              ? ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.red)
+                              : null,
                           onPressed: () {
-                            Navigator.of(context).pop(OrderProductDto(
-                                product: widget.product, amout: amout));
+                            if (amout == 0) {
+                              _showConfirmDelete(amout);
+                            } else {
+                              Navigator.of(context).pop(OrderProductDto(
+                                  product: widget.product, amout: amout));
+                            }
                           },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Adicionar',
-                                style: context.textStyles.textExtraBold
-                                    .copyWith(
-                                        fontSize: 13, color: Colors.white),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: AutoSizeText(
-                                  (widget.product.price * amout).currencyPTBR,
-                                  maxFontSize: 13,
-                                  minFontSize: 5,
-                                  maxLines: 1,
+                          child: Visibility(
+                            visible: amout > 0,
+                            replacement: Text('Excluir Produto',
+                                style: context.textStyles.textExtraBold),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Adicionar',
                                   style: context.textStyles.textExtraBold
-                                      .copyWith(color: Colors.white),
+                                      .copyWith(
+                                          fontSize: 13, color: Colors.white),
                                 ),
-                              )
-                            ],
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Expanded(
+                                  child: AutoSizeText(
+                                    (widget.product.price * amout).currencyPTBR,
+                                    maxFontSize: 13,
+                                    minFontSize: 5,
+                                    maxLines: 1,
+                                    style: context.textStyles.textExtraBold
+                                        .copyWith(color: Colors.white),
+                                  ),
+                                )
+                              ],
+                            ),
                           ));
                     },
                   ),
