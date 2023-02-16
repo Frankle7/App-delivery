@@ -2,37 +2,23 @@
   "users": [
     {
       "id": 1,
-      "name": "Rodrigo Rahman",
-      "email": "rodrigorahman2@academiadoflutter.com.br",
-      "password": "123"
-    }
-  ],
-
-  "payment-types": [
-    {
-      "id": 1,
-      "name": "Cartão de crédito",
-      "acronym": "CC",
-      "enabled": true
+      "name": "Frankle Souza",
+      "email": "franklesousa38@gmail.com",
+      "password": "2132test"
     },
     {
       "id": 2,
-      "name": "Cartão de débito",
-      "acronym": "CD",
-      "enabled": true
-    },
-    {
-      "id": 3,
-      "name": "Vale Refeição",
-      "acronym": "VR",
-      "enabled": true
-    },
-    {
-      "id": 4,
-      "name": "Vale Alimentação",
-      "acronym": "VA",
-      "enabled": true
+      "name": "pedro mateu",
+      "email": "pedrin45ma@gmail.com",
+      "celular": "11965654225",
+      "password": "2106Teste"
     }
+  ],
+  "payment-types": [
+    { "id": 1, "name": "Cartão de crédito", "acronym": "CC", "enabled": true },
+    { "id": 2, "name": "Cartão de débito", "acronym": "CD", "enabled": true },
+    { "id": 3, "name": "Vale Refeição", "acronym": "VR", "enabled": true },
+    { "id": 4, "name": "Vale Alimentação", "acronym": "VA", "enabled": true }
   ],
   "products": [
     {
