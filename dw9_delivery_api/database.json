@@ -12,6 +12,27 @@
       "email": "pedrin45ma@gmail.com",
       "celular": "11965654225",
       "password": "2106Teste"
+    },
+    {
+      "id": 3,
+      "name": "lerry",
+      "email": "lerry@teste.com",
+      "celular": "11945332300",
+      "password": "teste12"
+    },
+    {
+      "id": 4,
+      "name": "Lucas Reinaldo",
+      "email": "lucasrei@gmail.com",
+      "celular": "68945531222",
+      "password": "123test"
+    },
+    {
+      "id": 5,
+      "name": "Jonathas Tassi",
+      "email": "jonathas23@gmail.com",
+      "celular": "11965654423",
+      "password": "123teste"
     }
   ],
   "payment-types": [
