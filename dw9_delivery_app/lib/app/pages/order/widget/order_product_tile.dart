@@ -1,3 +1,4 @@
+import 'package:dw9_delivery_app/app/core/extensions/formatter_extensions.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_increment_decrement_button.dart';
@@ -9,19 +10,20 @@ class OrderProductTile extends StatelessWidget {
   final OrderProductDto orderProduct;
 
   const OrderProductTile({
-    Key? key,
+    super.key,
     required this.index,
     required this.orderProduct,
   });
 
   @override
   Widget build(BuildContext context) {
+    final product = orderProduct.product;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10.0),
       child: Row(
         children: [
           Image.network(
-            'https://burgerx.com.br/assets/img/galeria/burgers/x-burger.jpg',
+            product.image,
             width: 100,
             height: 100,
             fit: BoxFit.cover,
@@ -33,7 +35,7 @@ class OrderProductTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'X-Burguer',
+                    product.name,
                     style: context.textStyles.textRegular.copyWith(
                       fontSize: 16,
                       color: Colors.white,
@@ -43,17 +45,17 @@ class OrderProductTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '19,90',
+                        (orderProduct.amout * product.price).currencyPTBR,
                         style: context.textStyles.textMedium.copyWith(
                           fontSize: 14,
                           color: context.colors.secondary,
                         ),
                       ),
                       DeliveryIncrementDecrementButton.compact(
-                          amout: 1,
-                          incrementTap: (){},
-                          decrementTap: (){},
-                          )
+                        amout: 1,
+                        incrementTap: () {},
+                        decrementTap: () {},
+                      )
                     ],
                   )
                 ],
