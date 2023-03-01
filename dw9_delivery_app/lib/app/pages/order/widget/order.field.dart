@@ -41,6 +41,8 @@ class OrderField extends StatelessWidget {
             ),
           ),
           TextFormField(
+            controller: controller,
+            validator: validator,
             decoration: InputDecoration(
             hintText: hintText,
             hintStyle: const TextStyle(color: Colors.white),
