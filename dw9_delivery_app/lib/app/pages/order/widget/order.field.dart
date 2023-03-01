@@ -12,7 +12,7 @@ class OrderField extends StatelessWidget {
     required this.title,
     required this.controller,
     required this.validator,
-    required this.hintText,
+    required this.hintText, required TextStyle hintStyle,
   });
 
   @override
@@ -43,12 +43,13 @@ class OrderField extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
             hintText: hintText,
+            hintStyle: const TextStyle(color: Colors.white),
             border: defaultBorder,
             enabledBorder: defaultBorder,
-            ),
-          style: context.textStyles.textRegular
-                .copyWith(color: Colors.white,),
-          
+            fillColor: Colors.black12,
+            filled: true,
+            ), 
+            style: context.textStyles.textMedium.copyWith(color: Colors.white,),
           ),  
           
         ],

@@ -1,10 +1,11 @@
 import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
+import 'package:dw9_delivery_app/app/models/payment_type_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 
 class PaymentTypesField extends StatelessWidget {
-  const PaymentTypesField({super.key});
+  const PaymentTypesField({super.key, required List<PaymentTypeModel> paymentTypes});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,10 @@ class PaymentTypesField extends StatelessWidget {
                             state.selected.title ?? '',
                             style: context.textStyles.textRegular.copyWith(color: Colors.white),
                           ),
-                          const Icon(Icons.arrow_forward_ios_rounded)
+                          const Icon(
+                            Icons.arrow_forward_ios_rounded, 
+                            color: Colors.white,
+                            )
                         ],
                        ),
                     ),
@@ -52,19 +56,20 @@ class PaymentTypesField extends StatelessWidget {
               source: [
                 {'value': 'VA', 'title': 'Vale Alimentação'},
                 {'value': 'VR', 'title': 'Vale Refeição'},
-                {'value': 'CC', 'title': 'Cartão de Crédito'},
+                {'value': 'CC', 'title': 'Cartão de Crédito',},
               ],
               title: (index, item) => item['title'] ?? '',
               value: (index, item) => item['value'] ?? '',
               group: (index, item) => 'Selecione uma forma de pagamento',
-            ),
+              ),
             choiceType: S2ChoiceType.radios,
             choiceGrouped: true,
             modalFilter: false,
             placeholder: '',
-          )
+            
+          ),
         ],
-      ),
+      ), 
     );
   }
 }
