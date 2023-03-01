@@ -85,6 +85,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                         decoration: const InputDecoration(
                           labelText: 'Senha',
                         ),
+                        obscureText: true,
                         controller: passwordEC,
                         style: const TextStyle(color: Colors.white),
                         validator: Validatorless.multiple([
