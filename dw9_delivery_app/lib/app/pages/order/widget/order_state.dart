@@ -10,6 +10,7 @@ enum OrderStatus {
   loading,
   loaded,
   error,
+  updateOrder,
 }
 
 class OrderState extends Equatable {
