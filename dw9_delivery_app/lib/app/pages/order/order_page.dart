@@ -1,3 +1,4 @@
+import 'package:dw9_delivery_app/app/core/extensions/formatter_extensions.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
@@ -111,12 +112,19 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                                 color: Colors.white,
                               ),
                             ),
-                            Text(
-                              r'R$ 200,00',
-                              style: context.textStyles.textExtraBold.copyWith(
-                                fontSize: 20,
-                                color: Colors.white,
-                              ),
+                            BlocSelector<OrderController, OrderState,
+                                double>(
+                              selector: (state) => state.totalOrder,
+                              builder: (context, totalOrder) {
+                                return Text(
+                                  totalOrder.currencyPTBR,
+                                  style:
+                                      context.textStyles.textExtraBold.copyWith(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                );
+                              },
                             ),
                           ]),
                     ),
@@ -155,10 +163,10 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                             valueListenable: paymentTypeValid,
                             builder: (_, paymentTypeValidValue, child) {
                               return PaymentTypesField(
-                                  paymentTypes: paymentTypes,
-                                  valueChanged: (value) {
-                                    paymentTypeId = value;
-                                  },
+                                paymentTypes: paymentTypes,
+                                valueChanged: (value) {
+                                  paymentTypeId = value;
+                                },
                                 valid: paymentTypeValidValue,
                                 valueSelected: paymentTypeId.toString(),
                               );
@@ -187,7 +195,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                                 formKey.currentState?.validate() ?? false;
                             final paymentTypeSelected = paymentTypeId != null;
                             paymentTypeValid.value = paymentTypeSelected;
-                            
+
                             if (valid) {}
                           }),
                     ),

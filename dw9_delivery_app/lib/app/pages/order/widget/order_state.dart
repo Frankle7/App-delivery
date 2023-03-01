@@ -19,12 +19,11 @@ class OrderState extends Equatable {
   final List<PaymentTypeModel> paymentTypes;
   final String? errorMessage;
 
-  const OrderState({
-    required this.status,
-    required this.orderProducts,
-    required this.paymentTypes,
-    this.errorMessage
-  });
+  const OrderState(
+      {required this.status,
+      required this.orderProducts,
+      required this.paymentTypes,
+      this.errorMessage});
 
   const OrderState.initial()
       : status = OrderStatus.initial,
@@ -32,8 +31,12 @@ class OrderState extends Equatable {
         paymentTypes = const [],
         errorMessage = null;
 
+  double get totalOrder => orderProducts.fold(
+      0.0, (previousValue, element) => previousValue + element.totalPrice);
+
   @override
-  List<Object?> get props => [status, orderProducts, paymentTypes, errorMessage];
+  List<Object?> get props =>
+      [status, orderProducts, paymentTypes, errorMessage];
 
   OrderState copyWith({
     OrderStatus? status,
