@@ -35,11 +35,12 @@ class PaymentTypesField extends StatelessWidget {
             selectedValue: valueSelected,
             modalType: S2ModalType.bottomSheet,
             onChange: (selected) {
-              valueChanged(int.parse(selected.value));
+              valueChanged(int.parse(selected.value
+              )); 
             },
             tileBuilder: (context, state) {
               return InkWell(
-                onTap: state.showModal,
+                onTap: state.showModal,   
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
