@@ -1,4 +1,4 @@
-package br.com.fkprojects.pediaqui.dw9_delivery_app
+package br.com.fkprojects.pediaqui.fk7_delivery_app
 
 import io.flutter.embedding.android.FlutterActivity
 

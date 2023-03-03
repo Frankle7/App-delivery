@@ -1,9 +1,9 @@
-import 'package:dw9_delivery_app/app/core/ui/base_state/base_state.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
-import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
-import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
-import 'package:dw9_delivery_app/app/pages/auth/register/register_controller.dart';
-import 'package:dw9_delivery_app/app/pages/auth/register/register_state.dart';
+import 'package:fk7_delivery_app/app/core/ui/base_state/base_state.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/text_styles.dart';
+import 'package:fk7_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
+import 'package:fk7_delivery_app/app/core/ui/widgets/delivery_button.dart';
+import 'package:fk7_delivery_app/app/pages/auth/register/register_controller.dart';
+import 'package:fk7_delivery_app/app/pages/auth/register/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:validatorless/validatorless.dart';

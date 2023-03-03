@@ -1,8 +1,8 @@
-import 'package:dw9_delivery_app/app/core/extensions/formatter_extensions.dart';
-import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
-import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
-import 'package:dw9_delivery_app/app/pages/home/home_controller.dart';
+import 'package:fk7_delivery_app/app/core/extensions/formatter_extensions.dart';
+import 'package:fk7_delivery_app/app/core/ui/helpers/size_extensions.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/text_styles.dart';
+import 'package:fk7_delivery_app/app/dto/order_product_dto.dart';
+import 'package:fk7_delivery_app/app/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';

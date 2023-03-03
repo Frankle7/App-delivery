@@ -1,5 +1,5 @@
-import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
-import 'package:dw9_delivery_app/app/models/payment_type_model.dart';
+import 'package:fk7_delivery_app/app/dto/order_product_dto.dart';
+import 'package:fk7_delivery_app/app/models/payment_type_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:match/match.dart';
 part 'order_state.g.dart';
@@ -57,12 +57,11 @@ class OrderConfirmDeleteProductState extends OrderState {
   final OrderProductDto orderProduct;
   final int index;
 
-  const OrderConfirmDeleteProductState({
-      required this.orderProduct,
+  const OrderConfirmDeleteProductState(
+      {required this.orderProduct,
       required this.index,
       required super.status,
       required super.orderProducts,
       required super.paymentTypes,
-      super.errorMessage
-    });
+      super.errorMessage});
 }

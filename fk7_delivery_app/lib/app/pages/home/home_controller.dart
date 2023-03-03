@@ -1,9 +1,9 @@
 // import 'dart:math/';
 import 'dart:developer';
-import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
-import 'package:dw9_delivery_app/app/pages/home/home_state.dart';
+import 'package:fk7_delivery_app/app/dto/order_product_dto.dart';
+import 'package:fk7_delivery_app/app/pages/home/home_state.dart';
 import 'package:bloc/bloc.dart';
-import 'package:dw9_delivery_app/app/repositories/products/products_repository.dart';
+import 'package:fk7_delivery_app/app/repositories/products/products_repository.dart';
 
 class HomeController extends Cubit<HomeState> {
   final ProductsRepository _productsRepository;
@@ -33,14 +33,15 @@ class HomeController extends Cubit<HomeState> {
     if (orderIndex > -1) {
       if (orderProduct.amout == 0) {
         shoppingBag.removeAt(orderIndex);
-      }else{
-      shoppingBag[orderIndex] = orderProduct;
-      }     
+      } else {
+        shoppingBag[orderIndex] = orderProduct;
+      }
     } else {
       shoppingBag.add(orderProduct);
     }
     emit(state.copyWith(shoppingBag: shoppingBag));
   }
+
   void updateBag(List<OrderProductDto> updateBag) {
     emit(state.copyWith(shoppingBag: updateBag));
   }

@@ -1,11 +1,10 @@
-
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:dw9_delivery_app/app/core/exceptions/repository_exception.dart';
-import 'package:dw9_delivery_app/app/core/exceptions/unauthorized_exceptions.dart';
-import 'package:dw9_delivery_app/app/core/rest_client/custom_dio.dart';
-import 'package:dw9_delivery_app/app/models/auth_model.dart';
+import 'package:fk7_delivery_app/app/core/exceptions/repository_exception.dart';
+import 'package:fk7_delivery_app/app/core/exceptions/unauthorized_exceptions.dart';
+import 'package:fk7_delivery_app/app/core/rest_client/custom_dio.dart';
+import 'package:fk7_delivery_app/app/models/auth_model.dart';
 
 import './auth_repository.dart';
 
@@ -25,7 +24,6 @@ class AuthRepositoryImpl implements AuthRepository {
 
       return AuthModel.fromMap(result.data);
     } on DioError catch (e, s) {
-      
       if (e.response?.statusCode == 403) {
         log('Permissão negada', error: e, stackTrace: s);
         throw UnauthorizedExceptions();

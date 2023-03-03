@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:dw9_delivery_app/app/pages/order/widget/order_state.dart';
-import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
-import 'package:dw9_delivery_app/app/repositories/order/order_repository.dart';
+import 'package:fk7_delivery_app/app/pages/order/widget/order_state.dart';
+import 'package:fk7_delivery_app/app/dto/order_product_dto.dart';
+import 'package:fk7_delivery_app/app/repositories/order/order_repository.dart';
 
 class OrderController extends Cubit<OrderState> {
   final OrderRepository _orderRepository;
@@ -58,8 +58,8 @@ class OrderController extends Cubit<OrderState> {
       orders[index] = order.copyWith(amout: order.amout - 1);
     }
     emit(
-        state.copyWith(orderProducts: orders, status: OrderStatus.updateOrder),
-        );
+      state.copyWith(orderProducts: orders, status: OrderStatus.updateOrder),
+    );
   }
 
   void cancelDeleteProcess() {

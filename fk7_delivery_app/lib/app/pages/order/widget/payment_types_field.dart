@@ -1,6 +1,6 @@
-import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
-import 'package:dw9_delivery_app/app/models/payment_type_model.dart';
+import 'package:fk7_delivery_app/app/core/ui/helpers/size_extensions.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/text_styles.dart';
+import 'package:fk7_delivery_app/app/models/payment_type_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 
@@ -15,8 +15,7 @@ class PaymentTypesField extends StatelessWidget {
       required this.paymentTypes,
       required this.valueChanged,
       required this.valid,
-      required this.valueSelected
-      });
+      required this.valueSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +34,11 @@ class PaymentTypesField extends StatelessWidget {
             selectedValue: valueSelected,
             modalType: S2ModalType.bottomSheet,
             onChange: (selected) {
-              valueChanged(int.parse(selected.value
-              )); 
+              valueChanged(int.parse(selected.value));
             },
             tileBuilder: (context, state) {
               return InkWell(
-                onTap: state.showModal,   
+                onTap: state.showModal,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -68,18 +66,22 @@ class PaymentTypesField extends StatelessWidget {
                         height: 1,
                         color: Colors.red,
                       ),
-                      ),
-                      Visibility(
+                    ),
+                    Visibility(
                       visible: !valid,
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 9.0,),
+                        padding: const EdgeInsets.only(
+                          left: 9.0,
+                        ),
                         child: Text(
                           '* Selecione uma forma de pagamento',
-                          style: context.textStyles.textRegular
-                            .copyWith(fontSize: 13, color: Colors.red, ),
+                          style: context.textStyles.textRegular.copyWith(
+                            fontSize: 13,
+                            color: Colors.red,
+                          ),
                         ),
                       ),
-                      )
+                    )
                   ],
                 ),
               );

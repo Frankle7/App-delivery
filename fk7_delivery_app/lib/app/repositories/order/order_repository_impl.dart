@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:dw9_delivery_app/app/core/exceptions/repository_exception.dart';
-import 'package:dw9_delivery_app/app/core/rest_client/custom_dio.dart';
-import 'package:dw9_delivery_app/app/models/payment_type_model.dart';
+import 'package:fk7_delivery_app/app/core/exceptions/repository_exception.dart';
+import 'package:fk7_delivery_app/app/core/rest_client/custom_dio.dart';
+import 'package:fk7_delivery_app/app/models/payment_type_model.dart';
 
 import './order_repository.dart';
 

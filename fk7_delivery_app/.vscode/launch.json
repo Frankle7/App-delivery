@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "dw9_delivery_app",
+            "name": "fk7_delivery_app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "dw9_delivery_app (profile mode)",
+            "name": "fk7_delivery_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "dw9_delivery_app (release mode)",
+            "name": "fk7_delivery_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

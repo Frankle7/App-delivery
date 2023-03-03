@@ -1,5 +1,5 @@
-import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
-import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
+import 'package:fk7_delivery_app/app/core/ui/helpers/size_extensions.dart';
+import 'package:fk7_delivery_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -33,13 +33,13 @@ class SplashPage extends StatelessWidget {
                     height: 80,
                   ),
                   DeliveryButton(
-                      width: context.percenWidth(.60),
-                      height: 35,
-                      label: 'ACESSAR',
-                      onPressed: () {
-                        Navigator.of(context).popAndPushNamed('/home');
-                        },
-                      )
+                    width: context.percenWidth(.60),
+                    height: 35,
+                    label: 'ACESSAR',
+                    onPressed: () {
+                      Navigator.of(context).popAndPushNamed('/home');
+                    },
+                  )
                 ],
               ),
             )

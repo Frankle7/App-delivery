@@ -1,5 +1,5 @@
-import 'package:dw9_delivery_app/app/pages/products_detail/product_detail_controller.dart';
-import 'package:dw9_delivery_app/app/pages/products_detail/products_detail_page.dart';
+import 'package:fk7_delivery_app/app/pages/products_detail/product_detail_controller.dart';
+import 'package:fk7_delivery_app/app/pages/products_detail/products_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,9 +16,10 @@ class ProductsDetailRouter {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;
 
-          return ProductsDetailPage( 
-            product: args['product'], 
-            order: args['order'],);
+          return ProductsDetailPage(
+            product: args['product'],
+            order: args['order'],
+          );
         },
       );
 }

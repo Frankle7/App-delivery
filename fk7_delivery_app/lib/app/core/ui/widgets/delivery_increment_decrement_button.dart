@@ -1,5 +1,5 @@
-import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/colors_app.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DeliveryIncrementDecrementButton extends StatelessWidget {
@@ -45,8 +45,8 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
           ),
           Text(
             amout.toString(),
-            style: context.textStyles.textRegular
-                .copyWith(fontSize: _compact ? 13 : 17, color: context.colors.secondary),
+            style: context.textStyles.textRegular.copyWith(
+                fontSize: _compact ? 13 : 17, color: context.colors.secondary),
           ),
           InkWell(
             onTap: incrementTap,
@@ -54,8 +54,9 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 '+',
-                style: context.textStyles.textMedium
-                    .copyWith(fontSize: _compact ? 10 : 22, color: context.colors.secondary),
+                style: context.textStyles.textMedium.copyWith(
+                    fontSize: _compact ? 10 : 22,
+                    color: context.colors.secondary),
               ),
             ),
           ),

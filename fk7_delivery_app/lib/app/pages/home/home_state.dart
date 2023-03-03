@@ -1,5 +1,5 @@
-import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
-import 'package:dw9_delivery_app/app/models/product_model.dart';
+import 'package:fk7_delivery_app/app/dto/order_product_dto.dart';
+import 'package:fk7_delivery_app/app/models/product_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:match/match.dart';
 part 'home_state.g.dart';

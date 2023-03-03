@@ -1,13 +1,12 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:dw9_delivery_app/app/core/rest_client/custom_dio.dart';
-import 'package:dw9_delivery_app/app/models/product_model.dart';
+import 'package:fk7_delivery_app/app/core/rest_client/custom_dio.dart';
+import 'package:fk7_delivery_app/app/models/product_model.dart';
 
 import 'products_repository.dart';
 import '../../core/exceptions/repository_exception.dart';
 
-
-class ProductsRepositoryImpl implements ProductsRepository  {
+class ProductsRepositoryImpl implements ProductsRepository {
   final CustomDio dio;
   ProductsRepositoryImpl({
     required this.dio,

@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:dw9_delivery_app/app/pages/auth/register/register_state.dart';
-import 'package:dw9_delivery_app/app/repositories/auth/auth_repository.dart';
+import 'package:fk7_delivery_app/app/pages/auth/register/register_state.dart';
+import 'package:fk7_delivery_app/app/repositories/auth/auth_repository.dart';
 
 
 class RegisterController extends Cubit<RegisterState> {

@@ -1,9 +1,9 @@
-import 'package:dw9_delivery_app/app/core/extensions/formatter_extensions.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
-import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
-import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_increment_decrement_button.dart';
-import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
-import 'package:dw9_delivery_app/app/pages/order/widget/order_controller.dart';
+import 'package:fk7_delivery_app/app/core/extensions/formatter_extensions.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/colors_app.dart';
+import 'package:fk7_delivery_app/app/core/ui/styles/text_styles.dart';
+import 'package:fk7_delivery_app/app/core/ui/widgets/delivery_increment_decrement_button.dart';
+import 'package:fk7_delivery_app/app/dto/order_product_dto.dart';
+import 'package:fk7_delivery_app/app/pages/order/widget/order_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,10 +56,14 @@ class OrderProductTile extends StatelessWidget {
                       DeliveryIncrementDecrementButton.compact(
                         amout: orderProduct.amout,
                         incrementTap: () {
-                          context.read<OrderController>().incrementProduct(index);
+                          context
+                              .read<OrderController>()
+                              .incrementProduct(index);
                         },
                         decrementTap: () {
-                          context.read<OrderController>().decrementProduct(index) ;
+                          context
+                              .read<OrderController>()
+                              .decrementProduct(index);
                         },
                       )
                     ],
