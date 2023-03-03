@@ -43,7 +43,7 @@ extension OrderStatusMatch on OrderStatus {
       T Function()? loading,
       T Function()? loaded,
       T Function()? error,
-      T Function()? updateOrder}) {
+      T Function()? updateOrder, required Null Function() confirmRemoveProduct}) {
     final v = this;
     if (v == OrderStatus.initial && initial != null) {
       return initial();

@@ -51,7 +51,7 @@ class OrderField extends StatelessWidget {
             fillColor: Colors.black12,
             filled: true,
             ), 
-            style: context.textStyles.textMedium.copyWith(color: Colors.white,),
+            // style: context.textStyles.textMedium.copyWith(color: Colors.white,),
           ),  
           
         ],
