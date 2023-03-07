@@ -75,19 +75,22 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
     return BlocListener<OrderController, OrderState>(
         listener: (context, state) {
           state.status.matchAny(
-            any: () => hideLoader(),
-            loading: () => showLoader(),
-            error: () {
-              hideLoader();
-              showError(state.errorMessage ?? 'Erro não informado');
-            },
-            confirmRemoveProduct: () {
-              hideLoader();
-              if (state is OrderConfirmDeleteProductState) {
-                _showConfirmProductDialog(state);
-              }
-            },
-          );
+              any: () => hideLoader(),
+              loading: () => showLoader(),
+              error: () {
+                hideLoader();
+                showError(state.errorMessage ?? 'Erro não informado');
+              },
+              confirmRemoveProduct: () {
+                hideLoader();
+                if (state is OrderConfirmDeleteProductState) {
+                  _showConfirmProductDialog(state);
+                }
+              },
+              emptyBag: () {
+                showInfo('Sacola vazia, adicione algum produto para continuar');
+                Navigator.pop(context, <OrderProductDto>[]);
+              });
         },
         child: WillPopScope(
           onWillPop: () async {
@@ -112,7 +115,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                           style: context.textStyles.textTitle,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () => controller.emptyBag(),
                           icon: Image.asset(
                             'assets/images/trashRegular.png',
                           ),
