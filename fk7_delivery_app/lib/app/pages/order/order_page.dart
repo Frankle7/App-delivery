@@ -75,22 +75,30 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
     return BlocListener<OrderController, OrderState>(
         listener: (context, state) {
           state.status.matchAny(
-              any: () => hideLoader(),
-              loading: () => showLoader(),
-              error: () {
-                hideLoader();
-                showError(state.errorMessage ?? 'Erro não informado');
-              },
-              confirmRemoveProduct: () {
-                hideLoader();
-                if (state is OrderConfirmDeleteProductState) {
-                  _showConfirmProductDialog(state);
-                }
-              },
-              emptyBag: () {
-                showInfo('Sacola vazia, adicione algum produto para continuar');
-                Navigator.pop(context, <OrderProductDto>[]);
-              });
+            any: () => hideLoader(),
+            loading: () => showLoader(),
+            error: () {
+              hideLoader();
+              showError(state.errorMessage ?? 'Erro não informado');
+            },
+            confirmRemoveProduct: () {
+              hideLoader();
+              if (state is OrderConfirmDeleteProductState) {
+                _showConfirmProductDialog(state);
+              }
+            },
+            emptyBag: () {
+              showInfo('Sacola vazia, adicione algum produto para continuar');
+              Navigator.pop(context, <OrderProductDto>[]);
+            },
+            success: () {
+              hideLoader();
+              Navigator.of(context).popAndPushNamed(
+                '/order/completed',
+                result: <OrderProductDto>[],
+              );
+            },
+          );
         },
         child: WillPopScope(
           onWillPop: () async {
@@ -109,7 +117,8 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         horizontal: 20,
                         vertical: 10,
                       ),
-                      child: Row(children: [
+                      child: Row(
+                        children: [
                         Text(
                           'Carrinho',
                           style: context.textStyles.textTitle,
@@ -250,7 +259,13 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                                     paymentTypeId != null;
                                 paymentTypeValid.value = paymentTypeSelected;
 
-                                if (valid) {}
+                                if (valid && paymentTypeSelected) {
+                                  controller.saveOrder(
+                                    address: addressEC.text,
+                                    document: documentEC.text,
+                                    paymentMethoId: paymentTypeId!,
+                                  );
+                                }
                               }),
                         ),
                       ],
