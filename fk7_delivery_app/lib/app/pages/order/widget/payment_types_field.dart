@@ -87,14 +87,10 @@ class PaymentTypesField extends StatelessWidget {
               );
             },
             choiceItems: S2Choice.listFrom<String, Map<String, String>>(
-              source: [
-                {'value': 'VA', 'title': 'Vale Alimentação'},
-                {'value': 'VR', 'title': 'Vale Refeição'},
-                {
-                  'value': 'CC',
-                  'title': 'Cartão de Crédito',
-                },
-              ],
+              source: paymentTypes
+                  .map((e) => 
+                   {'value': e.id.toString(), 'title': e.name})
+                  .toList(),
               title: (index, item) => item['title'] ?? '',
               value: (index, item) => item['value'] ?? '',
               group: (index, item) => 'Selecione uma forma de pagamento',
