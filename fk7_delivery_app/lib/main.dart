@@ -4,5 +4,5 @@ import 'app/fk7_delivery_app.dart';
 
 void main() async{
   await Env.i.load();
-  runApp(const Fk7DeliveryApp());
+  runApp(Fk7DeliveryApp());
 }

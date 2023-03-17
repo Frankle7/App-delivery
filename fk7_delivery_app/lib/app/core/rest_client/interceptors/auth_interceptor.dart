@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../global/global.context.dart';
+
 class AuthInterceptor extends Interceptor {
   @override
   Future<void> onRequest(
@@ -15,11 +17,10 @@ class AuthInterceptor extends Interceptor {
   @override
   Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
-      // Redirecionar o usuario para a tela de home 'precisa criar uma global key'
-      final sp = await SharedPreferences.getInstance();
-      sp.clear();
+      GlobalContext.i.loginExpire();
+
       handler.next(err);
-      } else {
+    } else {
       handler.next(err);
     }
   }
