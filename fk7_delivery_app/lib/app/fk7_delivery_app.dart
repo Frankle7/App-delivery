@@ -8,7 +8,7 @@ import 'package:fk7_delivery_app/app/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/auth/register/register_router.dart';
-import 'pages/order/widget/order_completed_page.dart';
+import 'pages/order/order_completed_page.dart';
 
 class Fk7DeliveryApp extends StatelessWidget {
   const Fk7DeliveryApp({super.key});
